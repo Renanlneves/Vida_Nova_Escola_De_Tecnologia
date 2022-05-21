@@ -24,7 +24,7 @@ while pergunta != 0:
         # Loop em "for" onde o segundo numero da conta anterior passa a ser o primeiro. 
         # O segundo da conta anterior numero passa a ser o terceiro
         # e a variavel num3 faz a soma das variaveis num1 e num2.
-        # O loop começa no 3° e vai até o 10°.
+        # O loop começa no 4° e vai até o valor da variavel "pergunta".
         for i in range(4, pergunta + 1):
             n1 = n2
             n2 = n3
