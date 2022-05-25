@@ -15,26 +15,33 @@ while " │_│ " in lugares:
         for x, l in enumerate(lugares):
             div_10 = x % 10 
             if div_10 == 0:
-                print(x / 10 )
+                print("%1.0f" %(x / 10))
                 print("\n")
 
             
             print(l,end='')
-        print(qt_lugar / 10 )
+        print("%1.0f" %(qt_lugar / 10 ))
         verificador = False
 
-    #dados de linha e coluna
-    linha = int(input("Escolha uma linha: "))
-    coluna = input("Escolha uma coluna: ")
-    coluna = coluna.upper().strip()
+    verifica_2 = True
+    while verifica_2 == True:
+        #dados de linha e coluna
+        linha = int(input("Escolha uma linha: "))
+        coluna = input("Escolha uma coluna: ")
+        coluna = coluna.upper().strip()
 
-    #adicionando a posição da letra escrita em uma nova var
-    coluna_num = org_letras.index(coluna)
+        #adicionando a posição da letra escrita em uma nova var
+        coluna_num = org_letras.index(coluna)
 
-    #nova variante que calcula a posição do item, usando da escolha da coluna e da linha
-    lugar_escolhido = (linha * 10 - 10) + coluna_num
+        #nova variante que calcula a posição do item, usando da escolha da coluna e da linha
+        lugar_escolhido = (linha * 10 - 10) + coluna_num
 
-    lugares[lugar_escolhido] = " │x│ "
+        #lugares[lugar_escolhido] = " │x│ "
+        if lugares[lugar_escolhido] == " │x│ ":
+            print("Esse lugar já está ocupado, por favor escolha outro.")
+        else:
+            lugares[lugar_escolhido] = " │x│ "
+            verifica_2 = False
 
 print("\n\t-- A sala está cheia! A sessão vai começar! --")
 print("\n\n")
