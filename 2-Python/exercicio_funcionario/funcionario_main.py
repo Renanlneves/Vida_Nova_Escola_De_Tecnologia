@@ -1,6 +1,6 @@
-import funcoes_funcionario
+from funcoes_funcionario import menu
 
 
 
+menu()
 
-funcoes_funcionario.aliquota_salario()

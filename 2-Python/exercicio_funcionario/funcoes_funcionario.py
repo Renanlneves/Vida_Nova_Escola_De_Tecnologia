@@ -1,8 +1,5 @@
 #declarando funções
 
-from logging import exception
-
-
 def linhas_separacao(x = "-"):
     """função com linhas que podem ser usadas para dividir determinados itens na tela.
     ela pode receber uma outra string para imprimir no lugar da predefinida. """
@@ -22,30 +19,31 @@ def exibindo_dados():
     linhas_separacao("=")
     
 
-def dados_funcionario(nome = input("Qual o nome do funcionário? ").title().strip(), 
-                    sobrenome = input("Qual o sobrenome do funcionário? ").title().strip(),
-                    cargo = input("Qual o cargo que o funcionário ocupará? ").upper().strip()):
+def dados_funcionario(nome = "Nome não definido", sobrenome = "Sobrenome não definido", cargo = "Cargo não definido"):
     """função que coleta dados do funcionario a ser cadastrado. Ela retorna inputs que 
     esperam entradas do usuario no parametro. e retorna uma lista com esses dados."""
-                    
+    nome = input("Qual o nome do funcionário? ").title().strip(), 
+    sobrenome = input("Qual o sobrenome do funcionário? ").title().strip(),
+    cargo = input("Qual o cargo que o funcionário ocupará? ").upper().strip()
+
     lista_dados = [nome, sobrenome, cargo]
     return lista_dados
 
-def salario():
+def salario(info_salario = 0.0):
     """função para coletar o valor do salario para o funcionario. Um loop infinito é
     utilizado para iniciar uma verificação try/except. Que é encerrada pelo return, 
     caso seja digitado numeros na entrada.."""
     
-    while True:
-        try:
-            info_salario = float(input("Digite o salario do funcionario cadastrado: "))
-            return info_salario
-        except ValueError:
-            print("Por favor utilize apenas números!")
-
+    #try:
+    info_salario = float(input("Digite o salário do funcionario cadastrado: "))
+            
+    #except ValueError:
+        #print("Por favor utilize apenas números!")
+    return info_salario
 
 
 def aliquota_salario(salario_bruto = salario()):
+    """Calcula o valor a ser descontado para o imposto de renda de acordo com a faixa salarial do funcionario cadastrado"""
     porcentagens = [0, 0.075, 0.15, 0.225, 0.275]
     if salario_bruto <= 1903.98:
         desconto = porcentagens[0]
@@ -63,7 +61,10 @@ def aliquota_salario(salario_bruto = salario()):
     print(f"Foi deduzido {desconto_porcentagem:.2f}% de R${salario_bruto} ")
     print(f"O salário liquido será de {liquido}")
 
-        
+def menu():
+    linhas_separacao("*")
+    print("\t│\t    BEM VINDO!\t\t   │")
+    linhas_separacao("*")   
 
 
 
