@@ -1,6 +1,4 @@
-from funcoes_funcionario import menu
+import funcoes_funcionario
 
-
-
-menu()
-
+dados_funcionario = funcoes_funcionario.dados_funcionario()
+funcoes_funcionario.exibindo_dados(dados_funcionario)

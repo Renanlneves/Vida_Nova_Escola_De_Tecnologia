@@ -6,10 +6,10 @@ def linhas_separacao(x = "-"):
     print("\t", end='')
     print(x * 35)
     
-def exibindo_dados():
+def exibindo_dados(l = ["Sem dados", "Sem dados", "Sem dados"]):
     """função para exibir os dados previamente colocados na função dados_funcionario.
     não é esperado nenhum paramentro."""
-    l = dados_funcionario()
+    
     linhas_separacao("=")
     print("\t\tNome: ", l[0])
     linhas_separacao()
@@ -26,7 +26,10 @@ def dados_funcionario(nome = "Nome não definido", sobrenome = "Sobrenome não d
     sobrenome = input("Qual o sobrenome do funcionário? ").title().strip(),
     cargo = input("Qual o cargo que o funcionário ocupará? ").upper().strip()
 
-    lista_dados = [nome, sobrenome, cargo]
+    lista_dados = []
+    lista_dados.extend(nome)
+    lista_dados.extend(sobrenome)
+    lista_dados.append(cargo)
     return lista_dados
 
 def salario(info_salario = 0.0):
@@ -34,16 +37,17 @@ def salario(info_salario = 0.0):
     utilizado para iniciar uma verificação try/except. Que é encerrada pelo return, 
     caso seja digitado numeros na entrada.."""
     
-    #try:
-    info_salario = float(input("Digite o salário do funcionario cadastrado: "))
+    try:
+        info_salario = float(input("Digite o salário do funcionario cadastrado: "))
             
-    #except ValueError:
-        #print("Por favor utilize apenas números!")
+    except ValueError:
+        print("Por favor utilize apenas números!")
     return info_salario
 
 
-def aliquota_salario(salario_bruto = salario()):
+def aliquota_salario(salario_bruto = 0.0):
     """Calcula o valor a ser descontado para o imposto de renda de acordo com a faixa salarial do funcionario cadastrado"""
+    
     porcentagens = [0, 0.075, 0.15, 0.225, 0.275]
     if salario_bruto <= 1903.98:
         desconto = porcentagens[0]
