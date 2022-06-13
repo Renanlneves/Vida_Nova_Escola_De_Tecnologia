@@ -6,16 +6,17 @@ Exercício:
 
 - FUNCIONÁRIO
 
-  Primeira etapa:
+-  Primeira etapa:
+  
   Desenvolva um programa em 3 etapas. Tente concluir cada etapa separadamente. Somente a etapa 1 e 2 são “obrigatórias” dado tudo o que já aprendemos.
 A primeira etapa consiste em construir quatro funções diferentes:
-1ª Ler o nome, sobrenome e cargo de um funcionário e retornar essas informações dentro de um vetor.
-2ª Exibir na tela as informações do funcionário que devem ser passadas por parâmetro.
-3ª Ler e retornar um salário para esse funcionário.
-4ª Calcular e exibir na tela o salário Líquido desse funcionário depois de calcular o Imposto de Renda.
-O código deve rodar em um loop infinito e dar as opções para que seja possível escolher qual função eu desejo chamar.
+ - 1ª Ler o nome, sobrenome e cargo de um funcionário e retornar essas informações dentro de um vetor.
+ - 2ª Exibir na tela as informações do funcionário que devem ser passadas por parâmetro.
+ - 3ª Ler e retornar um salário para esse funcionário.
+ - 4ª Calcular e exibir na tela o salário Líquido desse funcionário depois de calcular o Imposto de Renda.
+ - O código deve rodar em um loop infinito e dar as opções para que seja possível escolher qual função eu desejo chamar.
 
-  Segunda etapa:
+-  Segunda etapa:
   A segunda etapa consiste em fazer validações para essas funções:
 
 - O imposto de renda só pode ser calculado se eu já chamei as funções de colocar as informações do funcionário (nome, sobrenome e cargo) e de inserir um salário para esse.
