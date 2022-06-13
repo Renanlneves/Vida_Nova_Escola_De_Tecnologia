@@ -4,7 +4,19 @@ def linhas_separacao(x = "-"):
     """função com linhas que podem ser usadas para dividir determinados itens na tela.
     ela pode receber uma outra string para imprimir no lugar da predefinida. """
     print("\t", end='')
-    print(x * 35)
+    return x * 35
+
+def verific_num_int(texto):
+    while True:
+        try:
+            txt = int(input(texto))
+        except (ValueError, TypeError):
+            print("Por favor digite apenas números válidos.")
+        except (KeyboardInterrupt):
+            print("Nenhum número foi digitado")
+            return 0
+        else:
+            return txt
     
 def exibindo_dados(l = ["Sem dados", "Sem dados", "Sem dados"]):
     """função para exibir os dados previamente colocados na função dados_funcionario.
@@ -37,12 +49,14 @@ def salario(info_salario = 0.0):
     utilizado para iniciar uma verificação try/except. Que é encerrada pelo return, 
     caso seja digitado numeros na entrada.."""
     
-    try:
-        info_salario = float(input("Digite o salário do funcionario cadastrado: "))
-            
-    except ValueError:
-        print("Por favor utilize apenas números!")
-    return info_salario
+    while True:
+        try:
+            info_salario = float(input("Digite o salário do funcionario cadastrado: "))
+                      
+        except ValueError:
+            print("Por favor utilize apenas números!")
+        else:
+            return info_salario
 
 
 def aliquota_salario(salario_bruto = 0.0):
@@ -65,11 +79,21 @@ def aliquota_salario(salario_bruto = 0.0):
     print(f"Foi deduzido {desconto_porcentagem:.2f}% de R${salario_bruto} ")
     print(f"O salário liquido será de {liquido}")
 
-def menu():
-    linhas_separacao("*")
-    print("\t│\t    BEM VINDO!\t\t   │")
-    linhas_separacao("*")   
 
 
+def cabecalho(txt):
+    """cabeçalho que da suporte para a função menu"""
+    print(linhas_separacao())
+    print("\t", txt.center(35))
+    print(linhas_separacao())
 
-
+def menu(lista):
+    """função que organiza o menu de interação do programa"""
+    cabecalho("ESCOLHA UMA OPÇÃO")
+    x = 1
+    for item in lista:
+        print(f"\t  {x} - {item}")
+        x += 1
+    print(linhas_separacao())
+    opcao = verific_num_int("Escolha uma opção: ")
+    return opcao
