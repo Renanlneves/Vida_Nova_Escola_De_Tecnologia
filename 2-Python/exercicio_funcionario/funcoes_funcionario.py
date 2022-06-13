@@ -18,31 +18,16 @@ def verific_num_int(texto):
         else:
             return txt
     
-def exibindo_dados(l = ["Sem dados", "Sem dados", "Sem dados"]):
+def exibindo_dados(l = ["Sem dados", "Sem dados", "Sem dados", "Sem dados"]):
     """função para exibir os dados previamente colocados na função dados_funcionario.
     não é esperado nenhum paramentro."""
     
-    linhas_separacao("=")
-    print("\t\tNome: ", l[0])
-    linhas_separacao()
-    print("\t\tSobrenome: ", l[1])
-    linhas_separacao()
-    print("\t\tCargo: ", l[2])
-    linhas_separacao("=")
-    
-
-def dados_funcionario(nome = "Nome não definido", sobrenome = "Sobrenome não definido", cargo = "Cargo não definido"):
-    """função que coleta dados do funcionario a ser cadastrado. Ela retorna inputs que 
-    esperam entradas do usuario no parametro. e retorna uma lista com esses dados."""
-    nome = input("Qual o nome do funcionário? ").title().strip(), 
-    sobrenome = input("Qual o sobrenome do funcionário? ").title().strip(),
-    cargo = input("Qual o cargo que o funcionário ocupará? ").upper().strip()
-
-    lista_dados = []
-    lista_dados.extend(nome)
-    lista_dados.extend(sobrenome)
-    lista_dados.append(cargo)
-    return lista_dados
+    print()
+    print("\tNome: ", l[0])
+    print("\tSobrenome: ", l[1])
+    print("\tCargo: ", l[2])
+    print("\tSalário: R$", l[3])
+    print()
 
 def salario(info_salario = 0.0):
     """função para coletar o valor do salario para o funcionario. Um loop infinito é
@@ -57,6 +42,23 @@ def salario(info_salario = 0.0):
             print("Por favor utilize apenas números!")
         else:
             return info_salario
+
+def dados_funcionario(nome = "Nome não definido", sobrenome = "Sobrenome não definido", cargo = "Cargo não definido", info_salario = "Salário não definido"):
+    """função que coleta dados do funcionario a ser cadastrado. Ela retorna inputs que 
+    esperam entradas do usuario no parametro. e retorna uma lista com esses dados."""
+    nome = input("Qual o nome do funcionário? ").title().strip(), 
+    sobrenome = input("Qual o sobrenome do funcionário? ").title().strip(),
+    cargo = input("Qual o cargo que o funcionário ocupará? ").upper().strip()
+    info_salario = salario()
+
+    lista_dados = []
+    lista_dados.extend(nome)
+    lista_dados.extend(sobrenome)
+    lista_dados.append(cargo)
+    lista_dados.append(info_salario)
+    return lista_dados
+
+
 
 
 def aliquota_salario(salario_bruto = 0.0):
@@ -76,8 +78,9 @@ def aliquota_salario(salario_bruto = 0.0):
     
     desconto_porcentagem = desconto * 100
     liquido = salario_bruto - (salario_bruto * desconto)
-    print(f"Foi deduzido {desconto_porcentagem:.2f}% de R${salario_bruto} ")
-    print(f"O salário liquido será de {liquido}")
+    print(f"\n\tFoi deduzido {desconto_porcentagem:.2f}% de R${salario_bruto} ")
+    print(f"\tO salário liquido será de {liquido}")
+    print()
 
 
 
@@ -92,7 +95,7 @@ def menu(lista):
     cabecalho("ESCOLHA UMA OPÇÃO")
     x = 1
     for item in lista:
-        print(f"\t  {x} - {item}")
+        print(f"\t  {item}")
         x += 1
     print(linhas_separacao())
     opcao = verific_num_int("Escolha uma opção: ")
