@@ -1,5 +1,6 @@
-![logo_escola](https://user-images.githubusercontent.com/71992079/174660252-13334d63-eb93-4179-b846-5f97ca81e8b9.png)
-
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/71992079/174662473-8d564172-f69d-4118-ad0b-71ebcdf596d4.png">
+</p>
 
 <h1>Etapa De Orientação a Objetos<h1>
   
