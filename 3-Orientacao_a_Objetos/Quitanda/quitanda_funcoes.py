@@ -1,6 +1,3 @@
-import re
-
-
 def verific_num_int(texto):
     """Faz a verificação do número digitado, afim de evitar erros."""
     while True:
@@ -30,31 +27,40 @@ def menu(lista, texto):
     """função que organiza o menu de interação do programa
     precisa de doisa paremetros, sendo um uma lista, e e outro uma string
     """
-    cabecalho(texto)
-    nomes_frutas = []
-    valor_frutas = []
-    x = 1
-    for item in lista:
-        print(f"\t\t {x} -> {item}: ${lista[item]}")
-        x += 1
-        nomes_frutas.append(item)
-        valor_frutas.append(lista[item])
-    print(linhas_separacao())
-    opcao = verific_num_int("Escolha uma opção: ")
-
-    quant_fruta = sub_menu_fruta(nomes_frutas[opcao - 1], valor_frutas[opcao - 1])
-    valor_uma_fruta = total_frutas(quant_fruta, valor_frutas[opcao - 1])
-    cabecalho(f"""\tO total de {quant_fruta} {nomes_frutas[opcao - 1]}(s)
-    \t\té de ${valor_uma_fruta}""" )
-
-    return opcao
     
+    while True:
+        cabecalho(texto)
+        nomes_frutas = []
+        valor_frutas = []
+        x = 1
+        for item in lista:
+            print(f"\t\t {x} -> {item}: ${lista[item]}")
+            x += 1
+            nomes_frutas.append(item)
+            valor_frutas.append(lista[item])
+        print(linhas_separacao())
+        opcao = verific_num_int("Escolha uma opção: ")
+
+        quant_fruta = sub_menu_fruta(nomes_frutas[opcao - 1], valor_frutas[opcao - 1])
+        valor_uma_fruta = total_frutas(quant_fruta, valor_frutas[opcao - 1])
+        cabecalho(f"""\tO total de {quant_fruta} {nomes_frutas[opcao - 1]}(s)
+        \t\té de ${valor_uma_fruta}""" )
+        
+        terminar = input("Gostaria de comprar mais alguma fruta (s / n)? -> ")
+        if terminar == "n":
+            break
+        
+            
+
+
+    return opcao#não está sendo usado
+        
 
 def sub_menu_fruta(nome, valor, unidades = 0):
     cabecalho(f"{nome} -> ${valor}")
     print("\t\tQuantas Unidades?")
     linhas_separacao()
-    unidades = int(input("-> "))
+    unidades = verific_num_int("-> ")
     return unidades
 
 def total_frutas(unidades = 0, valor = 0): 
