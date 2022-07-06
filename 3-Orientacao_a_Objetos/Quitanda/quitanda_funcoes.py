@@ -53,7 +53,7 @@ def menu(lista, texto):
             nomes_frutas.append(item)
             valor_frutas.append(lista[item])
         print(linhas_separacao())
-        opcao = verific_num_int("Escolha uma opção: ")
+        opcao = verific_num_int("\n\tEscolha uma opção: ")
 
         quant_fruta = sub_menu_fruta(nomes_frutas[opcao - 1], valor_frutas[opcao - 1])
         valor_uma_fruta = total_frutas(quant_fruta, valor_frutas[opcao - 1])
@@ -67,22 +67,26 @@ def menu(lista, texto):
         lista_total.append(valor_uma_fruta)
 
 
-        terminar = input("Gostaria de comprar mais alguma fruta (s / n)? -> ")
+        terminar = input("\n\tGostaria de comprar mais alguma fruta (s / n)? -> ").lower()
         if terminar == "n":
             break    
     
-    cabecalho("** TOTAL ** ")
+    print("\n")
+    cabecalho("** EXTRATO ** ")
+    print("\tUNIDADES    FRUTA   VALOR UNITARIO\n")
+    
     contador = 0
     for i in lista_total:
         contador += 1
-        print(i, end=" ")
+        print("        ",i, end=" ")
         if contador % 3 == 0:
             print("\n")
-        
+    cabecalho("** TOTAL **")
+    texto_total = str(total_final)
+    cabecalho(f"$ {texto_total}")
     
-        
 
-    return opcao#não está sendo usado
+    return total_final#não está sendo usado
 
 
         
