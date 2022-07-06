@@ -2,7 +2,8 @@
   <img src="https://user-images.githubusercontent.com/71992079/176956742-5c442712-2162-4068-a445-1d67ee47360a.png">
 </p> 
 
-(Trabalho incompleto por enquanto)
+(primeira parte completa)
+(segunda parte em andamento)
 
 # Enunciado do exercício:
 Joaquim tem duas paixões: vender frutas na feira e dar o troco certo para os seus clientes. Vamos ajudá-lo a automatizar o trabalho? Suponha que Joaquim vende 3 tipos de fruta: laranja, melancia e morango. Suponha também que cada um possui um preço por unidade.
