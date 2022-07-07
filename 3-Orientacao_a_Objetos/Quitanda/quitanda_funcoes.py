@@ -86,8 +86,30 @@ def menu(lista, texto):
     cabecalho(f"$ {texto_total}")
     
 
-    return total_final#não está sendo usado
+    return total_final
 
 
         
+def final_venda(total, lista_notas, valor_pago = ""):
+    while not valor_pago.isnumeric():
+        valor_pago = input(f"O total da compra é de ${total}. Qual valor você irá dar? -> ")
+    
+    valor_pago = int(valor_pago)
+    troco = valor_pago - total
+    notas_dadas_troco = []
+    while True:
+        for nota in lista_notas:      
+            if nota <= troco:
+                troco -= nota
+                notas_dadas_troco.append(nota)
+                print(notas_dadas_troco)
+                print(troco)
+        if troco == 0:
+            break
+        
+
+
+
+    
+
 
