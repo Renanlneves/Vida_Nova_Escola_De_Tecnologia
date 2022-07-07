@@ -53,9 +53,17 @@ def menu(lista, texto):
             nomes_frutas.append(item)
             valor_frutas.append(lista[item])
         print(linhas_separacao())
-        opcao = verific_num_int("\n\tEscolha uma opção: ")
 
-        quant_fruta = sub_menu_fruta(nomes_frutas[opcao - 1], valor_frutas[opcao - 1])
+        #verificando se opção é menor do que os numeros no menu
+        while True:
+            try:
+                opcao = verific_num_int("\n\tEscolha uma opção: ")
+                quant_fruta = sub_menu_fruta(nomes_frutas[opcao - 1], valor_frutas[opcao - 1])
+                break
+            except IndexError:
+                print("Digite apenas os numeros que contem no menu.")
+
+
         valor_uma_fruta = total_frutas(quant_fruta, valor_frutas[opcao - 1])
         cabecalho(f"""\tO total de {quant_fruta} {nomes_frutas[opcao - 1]}(s)
         \t\té de ${valor_uma_fruta}""" )
@@ -96,16 +104,27 @@ def final_venda(total, lista_notas, valor_pago = ""):
     
     valor_pago = int(valor_pago)
     troco = valor_pago - total
+    
+    #criando uma lista com as notas necessarias para dar o troco
     notas_dadas_troco = []
     while True:
         for nota in lista_notas:      
             if nota <= troco:
                 troco -= nota
+                troco = round(troco, 2)
                 notas_dadas_troco.append(nota)
                 print(notas_dadas_troco)
-                print(troco)
+                print(troco,"\n")
+                break           
         if troco == 0:
             break
+
+    for i in range(len(notas_dadas_troco)):
+        
+        if notas_dadas_troco[i] >= 1:
+            print(f"{notas_dadas_troco[i]} Real")
+        else:
+            print(f"{notas_dadas_troco[i]} Centavos")
         
 
 
