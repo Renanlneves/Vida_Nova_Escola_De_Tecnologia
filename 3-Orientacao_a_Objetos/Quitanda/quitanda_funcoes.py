@@ -1,13 +1,16 @@
+from itertools import count
+
+
 def verific_num_int(texto):
     """Faz a verificação do número digitado, afim de evitar erros."""
     while True:
         try:
             txt = int(input(texto))
         except (ValueError, TypeError):
-            print("Por favor digite apenas números válidos.")
+            print("\n\t ** Por favor digite apenas números válidos. **")
         except (KeyboardInterrupt):
-            print("Nenhum número foi digitado")
-            return 0
+            print("\n\t** Nenhum número foi digitado **")
+            
         else:
             return txt
 
@@ -61,7 +64,7 @@ def menu(lista, texto):
                 quant_fruta = sub_menu_fruta(nomes_frutas[opcao - 1], valor_frutas[opcao - 1])
                 break
             except IndexError:
-                print("Digite apenas os numeros que contem no menu.")
+                print("\n\t** Digite apenas os numeros que contem no menu. **")
 
 
         valor_uma_fruta = total_frutas(quant_fruta, valor_frutas[opcao - 1])
@@ -101,9 +104,11 @@ def menu(lista, texto):
 def final_venda(total, lista_notas, valor_pago = ""):
     while not valor_pago.isnumeric():
         valor_pago = input(f"O total da compra é de ${total}. Qual valor você irá dar? -> ")
+
     
     valor_pago = int(valor_pago)
     troco = valor_pago - total
+    troco_original = troco
     
     #criando uma lista com as notas necessarias para dar o troco
     notas_dadas_troco = []
@@ -113,19 +118,27 @@ def final_venda(total, lista_notas, valor_pago = ""):
                 troco -= nota
                 troco = round(troco, 2)
                 notas_dadas_troco.append(nota)
-                print(notas_dadas_troco)
-                print(troco,"\n")
+                
                 break           
         if troco == 0:
             break
 
-    for i in range(len(notas_dadas_troco)):
-        
-        if notas_dadas_troco[i] >= 1:
-            print(f"{notas_dadas_troco[i]} Real")
-        else:
-            print(f"{notas_dadas_troco[i]} Centavos")
-        
+    #contando a quantidade de notas e moedas de cada valor que será necessario e imprimindo
+    lista_centavos = 0
+    contagem = 0   
+    cabecalho("NOTAS E MOEDAS PARA TROCO")
+    for i in range(len(lista_notas)):
+        if lista_notas[i] in notas_dadas_troco:
+            contagem = notas_dadas_troco.count(lista_notas[i])
+            if lista_notas[i] >= 1:
+                print(f"\t    {contagem} nota(s)  de  {lista_notas[i]} Real(is)")
+            else:
+                lista_centavos = lista_notas[i] * 100 
+                print(f"\t    {contagem} moeda(s)  de  {round(lista_centavos)} Centavos")
+    cabecalho(F"TROCO TOTAL -> ${troco_original}")
+
+            
+    
 
 
 
