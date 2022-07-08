@@ -2,8 +2,7 @@
   <img src="https://user-images.githubusercontent.com/71992079/176956742-5c442712-2162-4068-a445-1d67ee47360a.png">
 </p> 
 
-(primeira parte completa)
-(segunda parte em andamento)
+
 
 # Enunciado do exercício:
 Joaquim tem duas paixões: vender frutas na feira e dar o troco certo para os seus clientes. Vamos ajudá-lo a automatizar o trabalho? Suponha que Joaquim vende 3 tipos de fruta: laranja, melancia e morango. Suponha também que cada um possui um preço por unidade.
@@ -20,9 +19,4 @@ Joaquim tem duas paixões: vender frutas na feira e dar o troco certo para os se
  - Pergunte ao cliente quanto dinheiro ele vai dar ao Joaquim (use números inteiros nesse momento) - Calcule o troco
  - Determine quantas notas de cada tipo Joaquim deve devolver de troco (considere nesse momento apenas notas de 1, 5 e 20 reais)
 
-### (Desafio)
- - E se o cliente inserir um valor menor que o preço da compra?
- - Troque o preço por unidade por um preço por kilo e permita o uso de valores com vírgula na pergunta do cliente
- - Permita o uso de moedas de 1, 5, 10 e 25 centavos no troco
 
-Se não for possível entregar o troco exato, imprima também uma mensagem informando quanto faltou.
