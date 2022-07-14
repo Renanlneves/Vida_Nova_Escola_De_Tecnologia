@@ -11,16 +11,16 @@ def codificador(txt, dic_codigo):
             frase_codificada += letra
     return frase_codificada
 
-def descodificador(txt, dic_codigo):
-    frase_descodificada = ""
+def decodificador(txt, dic_codigo):
+    frase_decodificada = ""
 
     for letra in txt:
         if letra in dic_codigo:
-            letra_descodificada = dic_codigo[letra]
-            frase_descodificada += letra_descodificada
+            letra_decodificada = dic_codigo[letra]
+            frase_decodificada += letra_decodificada
         else:
-            frase_descodificada += letra
-    return frase_descodificada
+            frase_decodificada += letra
+    return frase_decodificada
 
 
 
@@ -44,5 +44,5 @@ codigo = codificador(frase_secreta, letras_numeros)
 print(f"A frase codificada ficou: \n {codigo}")
 
 
-original = descodificador(codigo, numeros_letras)
+original = decodificador(codigo, numeros_letras)
 print(f"A frase descodificada ficou: \n {original}")
