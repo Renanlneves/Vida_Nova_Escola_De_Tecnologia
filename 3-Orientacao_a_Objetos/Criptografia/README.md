@@ -2,6 +2,9 @@
   <img src="https://user-images.githubusercontent.com/71992079/176956742-5c442712-2162-4068-a445-1d67ee47360a.png">
 </p> 
 
+### piperclip pode ser instalado para melhorar a experiência.
+### pip install pyperclip
+
 ## Cifra de troca simples
    - Realize as seguintes trocas: E por 3, A por 4, S por 5
 ## Cifra de troca numérica
