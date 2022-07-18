@@ -10,15 +10,20 @@ while par_impar != "par" and par_impar != "impar":
 
 
 # verificando se o número está dentro da faixa pedida e se é um inteiro.
+# Bem legal que você quis usar try-except, aqui vai uma dica
+# É interessante deixar os blocos try-except o mais próximo possível de onde pode dar problema
+# Exemplo: já que você quer tratar a entrada do usuário, deixe o bloco o mais perto de lá
 while True:
-    try:
         num_usuario = -1
         while num_usuario < 0 or num_usuario > 5:
-            num_usuario = int(
-                input("\nAgora diga um número (de 0 a 5) para sua jogada: -> "))
+            try:
+                # Assim você trata especificamente o erro que você queria
+                # Quanto mais código (ou mais linhas) o try-except envolver, maior a chance de você "capturar" um erro que não queria
+                num_usuario = int(
+                    input("\nAgora diga um número (de 0 a 5) para sua jogada: -> "))
+            except ValueError:
+                print("Apenas números inteiros validos.")
         break
-    except ValueError:
-        print("Apenas números inteiros validos.")
 
 num_pc = randint(0, 5)
 print(f"\n\tO computador escolheu -> {num_pc}.")
