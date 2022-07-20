@@ -12,7 +12,13 @@ while escolha < 0 or escolha > 3:
             1 - CRIPTOGRAFAR
             2 - DESCRIPTOGRAFAR\n -> """))
 
-chave = int(input("insira a chave para ser usada:\n -> "))
+while True:
+    chave = input("insira a chave para ser usada:\n -> ")
+    if not chave.isdecimal():#se não for um numero, volte para o loop
+        continue
+    if int(chave) > 0:# se o numero for maior que 0 transforme ele em inteiro e pare o loop
+        chave = int(chave)
+        break
 
 
 mensagem = input("escreva uma mensagem para ser codificada\n ->").upper()
