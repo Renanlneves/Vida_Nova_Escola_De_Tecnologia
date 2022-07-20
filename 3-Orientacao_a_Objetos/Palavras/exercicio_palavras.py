@@ -46,7 +46,7 @@ def palavras_com_nome(l = [], nome = "renan"):
 def palindromos(l = []):
     for palavra in l:
         if palavra == palavra[::-1]:
-            with open("palindromos", "a") as f:
+            with open("palindromos.txt", "a") as f:
                 f.write(palavra)
                 f.write("\n")
 
@@ -60,8 +60,8 @@ def palindromos(l = []):
 
 #print(f"Temos no arquivo {len(palavras)} palavras.")
 #letras_no_arquivo(palavras)
-contar_iniciais(palavras)
+#contar_iniciais(palavras)
 #iniciadas_iguais(palavras, "ren")
 #palavras_com_nome(palavras, "renan")
-#palindromos(palavras)
+palindromos(palavras)
 
