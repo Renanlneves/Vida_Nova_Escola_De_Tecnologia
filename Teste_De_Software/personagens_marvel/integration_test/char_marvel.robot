@@ -3,7 +3,7 @@ Library  RequestsLibrary
 Variables  config.py
 
 *** Variables ***
-${URL}= 
+
 
 *** Test Cases *** 
 Testar API Characters da Marvel
@@ -22,5 +22,7 @@ Realizar a requisicao para API
     Log To Console  ${response_char}
     Set Test Variable  ${response_char}
 
+
 Fazer a validacao dos campos necessarios
-    Request Should Be Sucessful  ${response_char}
+    Request Should Be Successful  ${response_char}
+    Should Not Be Empty  ${response_char.json()}[data]
