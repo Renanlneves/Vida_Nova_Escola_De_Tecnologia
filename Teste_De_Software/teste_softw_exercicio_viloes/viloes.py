@@ -3,7 +3,7 @@ class Marvel_viloes:
     def __init__(self, nome, poderes, perigo):
         self.nome = nome
         self.poderes = poderes
-        self.perigo = perigo
+        self.perigo = int(perigo)
         
 
     def get_nome(self):
@@ -19,19 +19,23 @@ class Marvel_viloes:
         self.poderes = poderes
 
     def get_perigo(self):
-        perigo = 0
-        while perigo < 1 or perigo > 5:            
-            try:
-                perigo = int(input("Qual o nivel de perigo do vilão?"))
-            except ValueError:
-                continue
         return self.perigo
 
     def set_perigo(self, perigo):
         self.perigo = perigo
+
+    def dominar_o_mundo(self, perigo):
+        if perigo <= 2:
+            return "Vilão Morto"
+        elif perigo > 2 and perigo < 5:
+            return "Vilão Preso"
+        else:
+            return "Vilão Dominou O Mundo!"
+
         
     
 
 
 vilao1 = Marvel_viloes("Mau", ["voar", "raios"], 5)
-vilao1.get_perigo()
+tipo = type(vilao1.get_perigo())
+print(tipo)
