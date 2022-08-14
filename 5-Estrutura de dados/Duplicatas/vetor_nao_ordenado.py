@@ -35,12 +35,20 @@ class VetorNaoOrdenado:
                 self.valores[i] = self.valores[i + 1]
             self.ultima_posicao = self.ultima_posicao - 1
     
-    def duplicatas(self, valor):
+    def duplicatas(self):
         lista_duplicados = []
+        dic_duplicados = {}
         for i in range(self.ultima_posicao + 1):
-            print(f" i = {self.valores[i]}")
-            for j in range(i + 1, self.ultima_posicao + 1):
-                print(f"j = {self.valores[j]}")
+            if self.valores[i] not in dic_duplicados:
+                dic_duplicados[self.valores[i]] = 1
+            else:
+                dic_duplicados[self.valores[i]] += 1
+        
+        for valor in dic_duplicados:
+            if dic_duplicados[valor] > 1:
+                lista_duplicados.append(valor)
+        return lista_duplicados
+
 
                 
 
@@ -52,13 +60,13 @@ vetor = VetorNaoOrdenado(8)
 # ADICIONEM TESTES A PARTIR DAQUI
 # =====================================
 
+vetor.insere(0)
 vetor.insere(2)
-vetor.insere(1)
+vetor.insere(6)
 vetor.insere(3)
 vetor.insere(4)
-vetor.insere(5)
-vetor.insere(0)
-vetor.insere(7)
+vetor.insere(2)
+vetor.insere(6)
 vetor.insere(6)
 
-vetor.duplicatas(3)
+print(vetor.duplicatas())
