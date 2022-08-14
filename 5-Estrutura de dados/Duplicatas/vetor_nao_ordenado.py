@@ -35,22 +35,23 @@ class VetorNaoOrdenado:
                 self.valores[i] = self.valores[i + 1]
             self.ultima_posicao = self.ultima_posicao - 1
     
-    def duplicatas(self):
+
+    def dublicatas(self, valores): 
         lista_duplicados = []
         dic_duplicados = {}
-        for i in range(self.ultima_posicao + 1):
-            if self.valores[i] not in dic_duplicados:
-                dic_duplicados[self.valores[i]] = 1
-            else:
-                dic_duplicados[self.valores[i]] += 1
+        for i in valores:
+            dic_duplicados[i] = dic_duplicados.get(i, 0) + 1
         
         for valor in dic_duplicados:
             if dic_duplicados[valor] > 1:
                 lista_duplicados.append(valor)
         return lista_duplicados
+       
 
 
-                
+        
+        
+
 
 
 # Chamando a Classe
@@ -66,7 +67,8 @@ vetor.insere(6)
 vetor.insere(3)
 vetor.insere(4)
 vetor.insere(2)
-vetor.insere(6)
+vetor.insere(3)
 vetor.insere(6)
 
-print(vetor.duplicatas())
+print(vetor.dublicatas(vetor.valores))
+
